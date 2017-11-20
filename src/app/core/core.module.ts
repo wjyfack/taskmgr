@@ -9,6 +9,8 @@ import { HttpModule } from '@angular/http';
 import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from '../login/login.module';
+
+import 'hammerjs';
 /*
 * core 模块只在系统中加载一次
 */

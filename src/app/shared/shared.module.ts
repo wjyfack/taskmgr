@@ -16,7 +16,9 @@ import { MdToolbarModule,
   MdDatepickerModule,
   MdNativeDateModule,
   MdRadioModule,
+  MdSelectModule,
 } from '@angular/material';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 /*
 * 这个模块主要是 把各模块需要的东西导入进来，再导出去
 */
@@ -40,6 +42,7 @@ import { MdToolbarModule,
     MdDatepickerModule,
     MdNativeDateModule,
     MdRadioModule,
+    MdSelectModule,
   ],
   exports: [
     CommonModule,
@@ -58,7 +61,9 @@ import { MdToolbarModule,
     MdTooltipModule,
     MdDatepickerModule,
     MdRadioModule,
+    MdSelectModule,
   ],
-  declarations: []
+  declarations: [ConfirmDialogComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class SharedModule { }

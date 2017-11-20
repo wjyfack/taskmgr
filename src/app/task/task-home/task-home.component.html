@@ -5,13 +5,18 @@
     <app-task-header
     [header]="list.name" 
     (newTask)="lauchNewTaskDialog()"
+    (moveAll)="lauchCopyTaskDialog()"
+    (delList)="launchConfirmDialog()"
+    (onEditList)="launchEditListDialog()"
     ></app-task-header>
     <app-task-item
     *ngFor="let task of list.tasks"
-    [item]="task"></app-task-item>
+    [item]="task"
+    (taskClick)="launchUpdateTaskDialog(task)"
+    ></app-task-item>
   </app-task-list>
 </div>
 
-<button class="fab-button" md-fab type="button" >
+<button class="fab-button" md-fab type="button" (click)="lauchNewListDialog()">
   <md-icon>add</md-icon>
 </button>

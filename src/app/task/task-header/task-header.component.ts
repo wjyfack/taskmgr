@@ -9,11 +9,24 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class TaskHeaderComponent implements OnInit {
   @Input() header = '';
   @Output() newTask = new EventEmitter<void> ();
+  @Output() moveAll = new EventEmitter<void> ();
+  @Output() delList = new EventEmitter<void> ();
+  @Output() onEditList = new EventEmitter<void> ();
+
   constructor() { }
 
   ngOnInit() {
   }
   onNewTaskClick() {
     this.newTask.emit();
+  }
+  onMoveAllClick() {
+    this.moveAll.emit();
+  }
+  onDelListClick() {
+    this.delList.emit();
+  }
+  onEditListClick() {
+    this.onEditList.emit();
   }
 }
