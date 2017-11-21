@@ -1,8 +1,9 @@
 import { NgModule , SkipSelf, Optional} from '@angular/core';
+import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {  MdIconRegistry } from '@angular/material';
+import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { loadSvgResources } from '../util/svg.util';
 import { HttpModule } from '@angular/http';
@@ -11,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from '../login/login.module';
 
 import 'hammerjs';
+import 'rxjs/add/operator/take';
+
 /*
 * core 模块只在系统中加载一次
 */
@@ -20,7 +23,8 @@ import 'hammerjs';
     HttpModule,
     BrowserAnimationsModule,
     LoginModule,
-   SharedModule
+    AppRoutingModule,
+    SharedModule
   ],
   declarations: [
     HeaderComponent,
@@ -29,7 +33,11 @@ import 'hammerjs';
   exports: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    AppRoutingModule
+  ],
+  providers: [
+    {provide: 'BASE_CONFIG', useValue: 'http://localhost:3000'}
   ]
 })
 export class CoreModule {
@@ -41,6 +49,6 @@ export class CoreModule {
     if (parent) {
       throw new Error('模块已经存在，不能再次加载！');
     }
-    loadSvgResources(ir, ds)
+    loadSvgResources(ir, ds);
   }
  }
