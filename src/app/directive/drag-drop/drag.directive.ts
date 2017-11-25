@@ -26,7 +26,6 @@ export class DragDirective {
 
   @HostListener('dragstart', ['$event'])
   onDragStart(ev: Event) {
-    console.log(this.dragTag);
     if (this.el.nativeElement === ev.target) {
       this.rd.addClass(this.el.nativeElement, this.draggedClass);
       this.service.setDragData({tag: this.dragTag, data: this.dragData});
@@ -35,7 +34,6 @@ export class DragDirective {
 
   @HostListener('dragend', ['$event'])
   onDragEnd(ev: Event) {
-    console.log('dragend')
     if (this.el.nativeElement === ev.target) {
       this.rd.removeClass(this.el.nativeElement, this.draggedClass);
     }

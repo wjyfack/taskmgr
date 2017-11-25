@@ -60,7 +60,7 @@ export class DropDirective {
     if (this.el.nativeElement === ev.target) {
       this.data$.subscribe(dragData => {
         if (this.dropTags.indexOf(dragData.tag) > -1) {
-           this.rd.addClass(this.el.nativeElement, this.dragEnterClass);
+           this.rd.removeClass(this.el.nativeElement, this.dragEnterClass);
            this.dropped.emit(dragData);
            this.service.clearDragData();
         }

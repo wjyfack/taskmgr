@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectiveModule } from '../directive/directive.module';
 import { MdToolbarModule,
   MdIconModule,
@@ -21,6 +22,7 @@ import { MdToolbarModule,
   MdSidenavModule,
 } from '@angular/material';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ImageListSelectComponent } from './image-list-select/image-list-select.component';
 /*
 * 这个模块主要是 把各模块需要的东西导入进来，再导出去
 */
@@ -28,6 +30,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MdIconModule,
     MdButtonModule,
     MdToolbarModule,
@@ -50,6 +54,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MdIconModule,
     MdButtonModule,
     MdToolbarModule,
@@ -68,8 +74,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MdSelectModule,
     MdSidenavModule,
     DirectiveModule,
+    ImageListSelectComponent
   ],
-  declarations: [ConfirmDialogComponent],
+  declarations: [ConfirmDialogComponent, ImageListSelectComponent],
   entryComponents: [ConfirmDialogComponent]
 })
 export class SharedModule { }
